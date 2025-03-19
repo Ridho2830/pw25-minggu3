@@ -2,7 +2,10 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  box-sizing: border-box;
 }
+
+
 .main {
   width: 100%;
   height: 100vh;
@@ -13,11 +16,8 @@
   text-align: center;
   overflow: auto;
 }
-h1,
-h2 {
-  color: white;
-}
 
+/* Navbar */
 .navbar {
   width: 85%;
   margin: auto;
@@ -27,21 +27,30 @@ h2 {
   justify-content: space-between;
   color: white;
 }
+
 .logo {
   font-size: 36px;
   font-weight: bold;
   cursor: pointer;
 }
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
 .navbar ul li {
   list-style: none;
   display: inline-block;
   margin: 0px 20px;
   position: relative;
 }
+
 .navbar ul li a {
   color: white;
   text-decoration: none;
 }
+
 .navbar ul li::after {
   content: "";
   height: 1px;
@@ -52,17 +61,44 @@ h2 {
   bottom: -5px;
   transition: 0.5s;
 }
+
 .navbar ul li:hover::after {
   width: 100%;
 }
+
+/* Content */
 .content {
   width: 100%;
   position: relative;
   padding-top: 20px;
 }
-.content h1 {
-  font-size: 60px;
+
+h1 {
+  color: white;
+  font-size: 36px;
+  margin-right: 600px;
+  margin-bottom: -30px;
 }
+h2 {
+  color: white;
+  font-size: 36px;
+}
+
+/* Container untuk tabel dan form */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Tabel Daftar Anggota */
+.table-container {
+  flex: 1;
+  min-width: 300px;
+}
+
 table {
   margin: 20px auto;
   width: 80%;
@@ -70,47 +106,47 @@ table {
   border-collapse: collapse;
   color: white;
 }
-th{
+
+th, td {
   padding: 10px;
   border: 1px solid white;
   text-align: center;
 }
-
-.left {
-  text-align: left;
-  padding: 10px;
-  border: 1px solid white;
-}
-.center {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid white;
-}
-
 
 th {
   background: rgba(0, 128, 0, 0.507);
 }
+
+/* Form Pendaftaran */
 .form-container {
-  margin-top: 30px;
+  flex: 0.5;
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
+
+.form-container h2 {
+  margin-bottom: 15px;
+}
+
 .form-container form {
   display: flex;
-  padding: 30px;
-  border-radius: 10px;
-  gap: 80px;
-  margin-left: 300px;
-  margin-right: 300px;
-  background: rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
+
 .form-container input,
 .form-container select {
-  margin: 10px 0;
+  width: 90%;
   padding: 10px;
   border-radius: 5px;
-  color: grey;
   border: none;
+  color: black;
 }
+
 .form-container button {
   background: green;
   color: white;
@@ -118,9 +154,21 @@ th {
   border: none;
   width: 100px;
   border-radius: 5px;
-  margin: 10px 0;
+  padding: 10px;
 }
 
 .form-container button:hover {
   background: rgba(0, 128, 0, 0.507);
+}
+
+/* Responsif: form pindah ke bawah tabel di layar kecil */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 90%;
+  }
 }
